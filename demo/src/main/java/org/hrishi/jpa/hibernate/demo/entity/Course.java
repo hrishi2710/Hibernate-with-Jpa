@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -57,7 +56,7 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return "Course [name=" + name + "]";
+		return String.format("Course[%s]", name);
 	}
 	
 	

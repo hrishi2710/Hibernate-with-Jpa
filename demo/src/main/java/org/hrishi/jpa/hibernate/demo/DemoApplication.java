@@ -24,7 +24,7 @@ public class DemoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		repository.playWithEntityManager();
+		//repository.playWithEntityManager();
 	}
 
 }
