@@ -24,10 +24,7 @@ public class DemoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		Course course = repository.findById(10001L);
-		logger.info("Course 10001 -> {}", course);
-		
-		repository.save(new Course("Microservices"));
+		repository.playWithEntityManager();
 	}
 
 }

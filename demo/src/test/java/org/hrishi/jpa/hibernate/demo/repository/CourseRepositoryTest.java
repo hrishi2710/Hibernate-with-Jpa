@@ -49,6 +49,12 @@ public class CourseRepositoryTest {
 		assertEquals("JPA updated",course1.getName());
 	}
 	
+	@Test
+	@DirtiesContext
+	public void playWithEntityManager() {
+		repository.playWithEntityManager();
+	}
+	
 	
 
 }
