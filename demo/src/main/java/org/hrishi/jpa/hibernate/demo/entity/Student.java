@@ -3,6 +3,7 @@ package org.hrishi.jpa.hibernate.demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -19,7 +20,7 @@ public class Student {
 	@Column (nullable = false)
 	private String name;
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
 	private Passport passport;
 
 	
