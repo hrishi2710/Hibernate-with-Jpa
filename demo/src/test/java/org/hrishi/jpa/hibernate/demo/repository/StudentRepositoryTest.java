@@ -3,6 +3,7 @@ package org.hrishi.jpa.hibernate.demo.repository;
 import javax.persistence.EntityManager;
 
 import org.hrishi.jpa.hibernate.demo.DemoApplication;
+import org.hrishi.jpa.hibernate.demo.entity.Passport;
 import org.hrishi.jpa.hibernate.demo.entity.Student;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,6 +24,16 @@ public class StudentRepositoryTest {
 	StudentRepository repository;
 	@Autowired
 	EntityManager em;
+	
+	@Test
+	@Transactional
+	public void retrievePassportAndStudentDetails() {
+		Passport passport = em.find(Passport.class, 40001L);
+		logger.info("Passport ->{}", passport);
+		logger.info("Passport which is associated to student ->{}", passport.getStudent());
+	}
+	
+	
 	@Test
 	@Transactional
 	public void retrieveStudentAndPassportDetails() {
