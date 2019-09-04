@@ -1,3 +1,6 @@
-insert into course(id, name) values (10001, 'JPA');
-insert into course(id, name) values (10002, 'Hibernate');
-insert into course(id, name) values (10003, 'MySql');
+insert into course(id, name, created_date, last_updated_date) 
+	values (10001, 'JPA', sysdate(), sysdate());
+insert into course(id, name,created_date, last_updated_date) 
+	values (10002, 'Hibernate', sysdate(), sysdate());
+insert into course(id, name,created_date, last_updated_date) 
+	values (10003, 'MySql', sysdate(), sysdate());

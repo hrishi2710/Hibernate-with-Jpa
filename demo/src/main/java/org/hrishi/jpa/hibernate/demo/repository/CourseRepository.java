@@ -43,15 +43,9 @@ public class CourseRepository {
 		Course course1 = new Course("Web Services");
 		em.persist(course1);
 		em.flush();
-		Course course2 = new Course("AngularJS");
-		em.persist(course2);
-		em.flush();
 		
-		course1.setName("Web Services updated");
-		course2.setName("AngularJS updated");
-		
-		em.refresh(course1);
-		em.flush();
+		Course course2 = findById(10001L);
+		course2.setName("JPA updated");
 	}
 
 }
