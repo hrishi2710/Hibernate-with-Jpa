@@ -26,6 +26,8 @@ public class DemoApplication implements CommandLineRunner{
 		// TODO Auto-generated method stub
 		Course course = repository.findById(10001L);
 		logger.info("Course 10001 -> {}", course);
+		
+		repository.save(new Course("Microservices"));
 	}
 
 }
