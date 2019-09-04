@@ -1,7 +1,7 @@
 package org.hrishi.jpa.hibernate.demo;
 
-import org.hrishi.jpa.hibernate.demo.entity.Course;
 import org.hrishi.jpa.hibernate.demo.repository.CourseRepository;
+import org.hrishi.jpa.hibernate.demo.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,10 @@ public class DemoApplication implements CommandLineRunner{
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
-	private CourseRepository repository;
+	private CourseRepository courseRepository;
+	
+	@Autowired
+	private StudentRepository studentRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -23,7 +26,7 @@ public class DemoApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+		studentRepository.saveStudentWithPassport();
 		//repository.playWithEntityManager();
 	}
 

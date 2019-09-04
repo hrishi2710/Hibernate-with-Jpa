@@ -23,6 +23,14 @@ public class Student {
 	private Passport passport;
 
 	
+	public Passport getPassport() {
+		return passport;
+	}
+
+	public void setPassport(Passport passport) {
+		this.passport = passport;
+	}
+
 	protected Student() {
 		
 	}
