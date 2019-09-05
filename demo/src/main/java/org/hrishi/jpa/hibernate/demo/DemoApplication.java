@@ -56,10 +56,10 @@ public class DemoApplication implements CommandLineRunner{
 		
 		//studentRepository.insertHardCodedStudentAndCourse();
 		//studentRepository.insertStudentAndCourse(new Student("Gond"), new Course("Microservices in 100 days"));
-		employeeRepository.insert(new FullTimeEmployee("Hrishi", new BigDecimal("10000")));
+		/*employeeRepository.insert(new FullTimeEmployee("Hrishi", new BigDecimal("10000")));
 		employeeRepository.insert(new PartTimeEmployee("Charlie", new BigDecimal("50")));
 		logger.info("Full time employees -> {}", employeeRepository.retrieveAllFullTimeEmployees());
-		logger.info("Part time employees -> {}", employeeRepository.retrieveAllPartTimeEmployees());
+		logger.info("Part time employees -> {}", employeeRepository.retrieveAllPartTimeEmployees());*/
 		
 	}
 
