@@ -1,11 +1,15 @@
 package org.hrishi.jpa.hibernate.demo.entity;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 
@@ -22,8 +26,19 @@ public class Student {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	private Passport passport;
+	
+	@ManyToMany
+	private List<Course> courses = new ArrayList<>();
 
 	
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void addCourse(Course course) {
+		this.courses.add(course);
+	}
+
 	public Passport getPassport() {
 		return passport;
 	}
