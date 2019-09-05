@@ -3,6 +3,7 @@ package org.hrishi.jpa.hibernate.demo.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -15,8 +16,19 @@ public class Review {
 	private String rating;
 	
 	private String description;
+	
+	@ManyToOne
+	private Course course;
 
 	
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
 	protected Review() {
 		
 	}
