@@ -1,5 +1,9 @@
 package org.hrishi.jpa.hibernate.demo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hrishi.jpa.hibernate.demo.entity.Review;
 import org.hrishi.jpa.hibernate.demo.repository.CourseRepository;
 import org.hrishi.jpa.hibernate.demo.repository.StudentRepository;
 import org.slf4j.Logger;
@@ -26,8 +30,19 @@ public class DemoApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		studentRepository.saveStudentWithPassport();
+		
+		//studentRepository.saveStudentWithPassport();
 		//repository.playWithEntityManager();
+		//courseRepository.addHardCodedReviewsForCourse();
+		
+		
+		List<Review> reviews = new ArrayList<Review>();
+		Review review1 = new Review("5", "Greate hand-on stuff");
+		Review review2 = new Review("5", "Hats off");
+		reviews.add(review1);
+		reviews.add(review2);
+		
+		courseRepository.addReviewsForCourse(10003L, reviews );
 	}
 
 }
