@@ -3,7 +3,9 @@ package org.hrishi.jpa.hibernate.demo;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hrishi.jpa.hibernate.demo.entity.Course;
 import org.hrishi.jpa.hibernate.demo.entity.Review;
+import org.hrishi.jpa.hibernate.demo.entity.Student;
 import org.hrishi.jpa.hibernate.demo.repository.CourseRepository;
 import org.hrishi.jpa.hibernate.demo.repository.StudentRepository;
 import org.slf4j.Logger;
@@ -36,13 +38,16 @@ public class DemoApplication implements CommandLineRunner{
 		//courseRepository.addHardCodedReviewsForCourse();
 		
 		
-		List<Review> reviews = new ArrayList<Review>();
+		/*List<Review> reviews = new ArrayList<Review>();
 		Review review1 = new Review("5", "Greate hand-on stuff");
 		Review review2 = new Review("5", "Hats off");
 		reviews.add(review1);
 		reviews.add(review2);
 		
-		courseRepository.addReviewsForCourse(10003L, reviews );
+		courseRepository.addReviewsForCourse(10003L, reviews );*/
+		
+		//studentRepository.insertHardCodedStudentAndCourse();
+		studentRepository.insertStudentAndCourse(new Student("Gond"), new Course("Microservices in 100 days"));
 	}
 
 }
