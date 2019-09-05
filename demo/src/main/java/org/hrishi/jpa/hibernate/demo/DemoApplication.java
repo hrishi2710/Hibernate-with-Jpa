@@ -1,12 +1,17 @@
 package org.hrishi.jpa.hibernate.demo;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.hrishi.jpa.hibernate.demo.entity.Course;
+import org.hrishi.jpa.hibernate.demo.entity.Employee;
+import org.hrishi.jpa.hibernate.demo.entity.FullTimeEmployee;
+import org.hrishi.jpa.hibernate.demo.entity.PartTimeEmployee;
 import org.hrishi.jpa.hibernate.demo.entity.Review;
 import org.hrishi.jpa.hibernate.demo.entity.Student;
 import org.hrishi.jpa.hibernate.demo.repository.CourseRepository;
+import org.hrishi.jpa.hibernate.demo.repository.EmployeeRepository;
 import org.hrishi.jpa.hibernate.demo.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +30,9 @@ public class DemoApplication implements CommandLineRunner{
 	
 	@Autowired
 	private StudentRepository studentRepository;
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -47,7 +55,10 @@ public class DemoApplication implements CommandLineRunner{
 		courseRepository.addReviewsForCourse(10003L, reviews );*/
 		
 		//studentRepository.insertHardCodedStudentAndCourse();
-		studentRepository.insertStudentAndCourse(new Student("Gond"), new Course("Microservices in 100 days"));
+		//studentRepository.insertStudentAndCourse(new Student("Gond"), new Course("Microservices in 100 days"));
+		employeeRepository.insert(new FullTimeEmployee("Hrishi", new BigDecimal("10000")));
+		employeeRepository.insert(new PartTimeEmployee("Charlie", new BigDecimal("50")));
+		logger.info("All employees -> {}", employeeRepository.retrieveAllEmployees());
 	}
 
 }
