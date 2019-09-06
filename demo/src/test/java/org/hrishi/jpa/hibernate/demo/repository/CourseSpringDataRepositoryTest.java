@@ -1,8 +1,6 @@
 package org.hrishi.jpa.hibernate.demo.repository;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Optional;
@@ -15,7 +13,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
@@ -49,6 +50,35 @@ public class CourseSpringDataRepositoryTest {
 		logger.info("Courses -> {}", repository.findAll());
 		logger.info("Courses -> {}", repository.count());
 		
+	}
+	
+	@Test
+	public void sort() {
+		/*Course course = new Course("microservices in 100 days");
+		repository.save(course);
+		course.setName("Microservices in 100 days updated");
+		repository.save(course);*/
+		Sort sort = new Sort(Sort.Direction.DESC , "name");
+		logger.info("Courses -> {}", repository.findAll(sort));
+		logger.info("Courses -> {}", repository.count());
+		
+	}
+	
+	@Test
+	public void pagination() {
+		/*Course course = new Course("microservices in 100 days");
+		repository.save(course);
+		course.setName("Microservices in 100 days updated");
+		repository.save(course);*/
+		PageRequest pageRequest = PageRequest.of(0, 3);
+		
+		Page<Course> firstPage = repository.findAll(pageRequest);
+		logger.info("First Page -> {}", firstPage.getContent());
+		
+		Pageable secondPageable = firstPage.nextPageable();
+		Page<Course> secondPage = repository.findAll(secondPageable);
+
+		logger.info("Second Page -> {}", secondPage.getContent());
 	}
 	
 
