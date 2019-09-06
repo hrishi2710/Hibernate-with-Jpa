@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoApplication.class)
@@ -26,6 +27,16 @@ public class CourseRepositoryTest {
 	public void findById_basic() {
 		Course course = repository.findById(10001L);
 		assertEquals("JPA",course.getName());
+	}
+	
+	@Test
+	@Transactional
+	public void findById_basic_firstLevelCache() {
+		Course course = repository.findById(10001L);
+		logger.info("first time retrieve ->{}", course);
+		Course course1 = repository.findById(10001L);
+		logger.info("second time retrieve ->{}", course1);
+		assertEquals("JPA in 50 days",course.getName());
 	}
 	
 	@Test

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 		@NamedQuery(name = "query_courses_with_name_services", 
 		query = "Select c From Course c where name like'%Services'")
 })
+
+@Cacheable
 public class Course {
 	
 	@Id
