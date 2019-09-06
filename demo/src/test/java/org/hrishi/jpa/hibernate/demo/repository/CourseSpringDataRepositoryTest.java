@@ -81,5 +81,10 @@ public class CourseSpringDataRepositoryTest {
 		logger.info("Second Page -> {}", secondPage.getContent());
 	}
 	
+	@Test
+	public void findCourses() {
+		logger.info("Courses with name -> {}", repository.findByName("JPA in 50 days"));
+	}
+	
 
 }
